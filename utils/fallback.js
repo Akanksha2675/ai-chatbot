@@ -11,16 +11,16 @@ export async function askWithFallback(prompt, primaryModel) {
     try {
         const response = await primary(prompt);
         return response;
-  } catch (error) {
+    } catch (error) {
         console.log("\n Primary Model Failed.");
         console.log(` Switching to ${fallbackName}...`);
-  }
+    }
 
-  try {
-    const response = await fallback(prompt);
-    console.log(" Response Generated Successfully.\n");
-    return response;
-  } catch (error) {
-    return " Both models failed. Please check your API keys or internet connection.";
-  }
+    try {
+      const response = await fallback(prompt);
+      console.log(" Response Generated Successfully.\n");
+      return response;
+    } catch (error) {
+      return " Both models failed. Please check your API keys or internet connection.";
+    }
 }
